@@ -6,7 +6,7 @@ export class App {
 			{ route: 'intro',					name: 'intro',      		moduleId: 'intro',      		nav: true, title: 'Zahraničie' },
 			{ route: 'abroad',				name: 'abroad',      		moduleId: 'abroad',      		nav: true, title: 'Zahraničie' },
       { route: 'voting-card',   name: 'voting-card',    moduleId: 'voting-card',  	nav: true, title: 'Github Users' },
-      { route: 'voting-letter', name: 'voting-letter', 	moduleId: 'voting-letter', 	nav: true, title: 'Child Router' },
+      { route: 'voting-form',   name: 'voting-form', 	  moduleId: 'voting-form', 	  nav: true, title: 'Child Router' },
 			{ route: 'pdf-preview', 	name: 'pdf-preview', 		moduleId: 'pdf-preview', 		nav: true, title: 'Child Router' },
 			{ route: 'sign-pdf', 			name: 'sign-pdf', 			moduleId: 'sign-pdf', 			nav: true, title: 'Child Router' },
 			{ route: 'pdf-final', 		name: 'pdf-final', 			moduleId: 'pdf-final', 			nav: true, title: 'Child Router' }
