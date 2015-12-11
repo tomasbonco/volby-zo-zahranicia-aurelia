@@ -5,7 +5,7 @@ export class App {
       { route: ['', 'welcome'], name: 'welcome',      	moduleId: 'welcome',      	nav: true, title: 'Welcome' },
 			{ route: 'intro',					name: 'intro',      		moduleId: 'intro',      		nav: true, title: 'Zahraničie' },
 			{ route: 'abroad',				name: 'abroad',      		moduleId: 'abroad',      		nav: true, title: 'Zahraničie' },
-      { route: 'voting-card',   name: 'voting-card',    moduleId: 'voting-card',  	nav: true, title: 'Github Users' },
+      { route: 'voting-card',   name: 'voting-card',    moduleId: 'voting-card',  	nav: true, title: 'Github Users' }, // TODO change this to something meaningful, it's displayed in title
       { route: 'voting-form',   name: 'voting-form', 	  moduleId: 'voting-form', 	  nav: true, title: 'Child Router' },
 			{ route: 'pdf-preview', 	name: 'pdf-preview', 		moduleId: 'pdf-preview', 		nav: true, title: 'Child Router' },
 			{ route: 'sign-pdf', 			name: 'sign-pdf', 			moduleId: 'sign-pdf', 			nav: true, title: 'Child Router' },
