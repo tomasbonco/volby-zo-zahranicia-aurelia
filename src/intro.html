@@ -1,18 +1,10 @@
-<template>
-	<!--> Krok 1 <-->
-	Intro
-	
-	<br>
-	<a href="#voting-card"> Voting card </a>
-	<a href="#voting-letter"> Voting letter </a>
-	
+<template>	
 	<div class="body-content">
 		<div class="row section krok1" id="zahranicie">
 			<div class="col-lg-12">
 				<h2>Trvalý pobyt mám</h2>
-				<a class="btn btn-lg btn-success btn-step digitalBlueFill" href="#preukaz-zahranicie" role="button"><strong>Registrovaný na Slovensku</strong></a>
-				<a class="btn btn-lg btn-success btn-step digitalRedFill" href="#ziadost" role="button" onclick="nemamTP()"><strong>Odhlásený</strong></a>
-				<input style="display:none" id="tpFlag" value="">
+				<a class="btn btn-lg btn-success btn-step digitalBlueFill" href="#foreign-id" role="button"><strong>Registrovaný na Slovensku</strong></a>
+				<a class="btn btn-lg btn-success btn-step digitalRedFill" click.trigger="unsignedButtonClicked()" role="button"><strong>Odhlásený</strong></a>
 			</div>
 		</div>
 	
