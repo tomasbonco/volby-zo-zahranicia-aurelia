@@ -11,7 +11,8 @@ export class App {
 			{ route: 'sign-pdf', 			name: 'sign-pdf', 			moduleId: 'sign-pdf', 			nav: true, title: 'Child Router' },
 			{ route: 'pdf-final', 		name: 'pdf-final', 			moduleId: 'pdf-final', 			nav: true, title: 'Child Router' },
 			{ route: 'foreign-id', 		name: 'foreign-id', 			moduleId: 'foreign-id', 			nav: true, title: 'Child Router' },
-			{ route: 'voting-id', 		name: 'voting-id', 			moduleId: 'voting-id', 			nav: true, title: 'Child Router' }
+			{ route: 'voting-id', 		name: 'voting-id', 			moduleId: 'voting-id', 			nav: true, title: 'Child Router' },
+			{ route: 'send-section', 		name: 'send-section', 			moduleId: 'send-section', 			nav: true, title: 'Child Router' }
     ]);
 
     this.router = router;

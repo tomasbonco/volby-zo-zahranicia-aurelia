@@ -12,6 +12,9 @@ export class ForeignId
 		this.router = router;
 	}
 	
+	/**
+	 * Callback clicked after pressing button
+	 */
 	voteViaPostClicked()
 	{
 		this.db.set( 'letterType', 0 );

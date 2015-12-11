@@ -17,7 +17,7 @@ export class SignPdf
 		this.iframeSrc = null;
 	}
 	
-	activate()
+	attached()
 	{
 		let letterType = this.db.get('letterType');
 		let formData = this.db.get('formData');

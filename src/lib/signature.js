@@ -21,7 +21,7 @@ export class Signature
 	
 	getSignatureURL()
 	{
-		return this.signaturePad.toDataURL();
+		return this.signature.toDataURL();
 	}
 	
 	resizeCanvas()

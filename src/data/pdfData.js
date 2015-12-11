@@ -1,4 +1,6 @@
-export class pdfTexts
+import {cities} from 'data/cities'
+
+export class PdfData
 {
 	getPDFContent( letterType, data, signature )
 	{
@@ -11,10 +13,10 @@ export class pdfTexts
 		let votingIdDelivery = [];
 		
 		
-		let footer = [
+		let signature1 = ! signature ? [] :[
 			{text: '', style: 'space'},
 			{
-				text: ['V ', {text: data.foreignAddress.street, style: 'value'}],
+				text: ['V ', {text: data.foreignAddress ? data.foreignAddress.street : '', style: 'value'}],
 				style: 'footer',
 			},
 			{
@@ -22,7 +24,26 @@ export class pdfTexts
 				style: 'footer',
 			},
 			{
-				image: signature, width: 150, alignment: 'right'
+				image: signature, width: 120, style: 'signatureStyle'
+			},
+			{
+				text: '                      Podpis                      ',
+				style: 'signatureTextStyle'
+			}
+		];
+		
+		let signature2 = ! signature ? [] : [
+			{text: '', style: 'space'},
+			{
+				text: ['V ', {text: data.foreignAddress ? data.foreignAddress.street : '', style: 'value'}],
+				style: 'footer',
+			},
+			{
+				text: ['Dátum: ', {text: this.getDate(), style: 'value'}],
+				style: 'footer',
+			},
+			{
+        		image:signature, width: 150, alignment: 'right'
 			},
 			{
 				text: '                      Podpis                      ',
@@ -133,7 +154,7 @@ export class pdfTexts
 				{
 					text: 'že nemám trvalý pobyt na území Slovenskej republiky.'
 				},
-				footer
+				signature2
 			];
 			
 		}
@@ -159,7 +180,7 @@ export class pdfTexts
 				},
 				{text: '', style: 'space'},
 				{
-					text: this.subjectAddress( data.slovakAddress.city ),
+					text: this.subjectAddress( data.slovakAddress ? data.slovakAddress.city : '' ), // TODO: Add default address
 					style: 'address',
 				},
 				{text: '', style: 'space'},
@@ -179,7 +200,7 @@ export class pdfTexts
 					columns:
 					[
 						{text: 'Priezvisko: ', style: 'line',},
-						{text:data.last.toUpperCase(), style: 'value'},
+						{text:data.lastname.toUpperCase(), style: 'value'},
 						{text: ''}
 					]
 				},
@@ -228,7 +249,7 @@ export class pdfTexts
 					columns:
 					[
 						{text: 'PSČ: ', style: 'line',},
-						{text: data.foreignAddress.zip.val(), style: 'value'},
+						{text: data.foreignAddress.zip, style: 'value'},
 						{text: ''}
 					]
 				},
@@ -260,7 +281,7 @@ export class pdfTexts
 						text: ['Meno: ', {text: data.name.toUpperCase(), style: 'value'}],
 						},
 						{
-						text: ['Priezvisko: ', {text: data.lastname.val().toUpperCase(), style: 'value'}],
+						text: ['Priezvisko: ', {text: data.lastname.toUpperCase(), style: 'value'}],
 						}
 					]
 				},
@@ -304,7 +325,7 @@ export class pdfTexts
 			letterContent =
 			[
 				{
-					text: this.subjectAddress( data.slovakAddress.city ),
+					text: this.subjectAddress( data.slovakAddress ? data.slovakAddress.city : '' ),
 					style: 'address',
 				},
 				{text: '', style: 'space'},
@@ -363,8 +384,10 @@ export class pdfTexts
 				votingIdDelivery
 			]
 		}
-		
-		return letterContent;
+		return [letterContent,
+			signature1,
+			statement || [],
+			[]];
 	}
 	
 	getDate()
@@ -436,19 +459,19 @@ export class pdfTexts
 			if ( cities[ico] )
 			{
 				address = cities[ico][0 ] + "\n";
-				if (o[ico][1] != "")
+				if (cities[ico][1] != "")
 				{
 				address += cities[ico][1] + "\n";
 				}
 				
-				if (o[ico][2] != "" || cities[ico][3] != "")
+				if (cities[ico][2] != "" || cities[ico][3] != "")
 				{
-					if (o[ico][2])
+					if (cities[ico][2])
 					{
 					address += cities[ico][2] + " ";
 					}
 					
-					if (o[ico][3])
+					if (cities[ico][3])
 					{
 					address += cities[ico][3];
 					}
@@ -457,6 +480,60 @@ export class pdfTexts
 				}
 			
 				address += cities[ico][4] + " " + cities[ico][5] + "\n" + cities[ico][6];
+			}
+		}
+		
+		return address;
+	}
+	
+	getPDFStyles()
+	{
+		return {
+			header: {
+				fontSize: 12,
+				bold: true,
+				alignment: 'justify'
+			},
+			value: {
+				fontSize: 12,
+				bold: true,
+				decoration: 'underline',
+				decorationStyle: 'dotted'
+			},
+			address: {
+				fontSize: 12,
+				italic: true,
+				alignment: 'justify',
+				margin: [260, 10, 10, 10],
+			},
+			line: {
+				fontSize: 12,
+				margin: [0, 0, 0, 0],
+				padding: [0, 0, 0, 0]
+			},
+			footer: {
+				fontSize: 12,
+				margin: [0, 0, 0, 0],
+				padding: [0, 0, 0, 0]
+			},
+			space: {
+				fontSize: 12,
+				margin: [0, 50, 0, 0]
+			},
+			spacesmall: {
+				fontSize: 12,
+				margin: [0, 20, 0, 0]
+			},
+			signatureStyle: {
+				margin: [0, -150, 0, 0],
+				alignment: 'right'
+			},
+			signatureTextStyle: {
+				decoration: 'overline',
+				decorationStyle: 'dotted',
+				alignment: 'right',
+				margin: [30, 10],
+				fontSize: 9
 			}
 		}
 	}
