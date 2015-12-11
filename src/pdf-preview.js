@@ -21,7 +21,7 @@ export class PdfPreview
 		let letterType = this.db.get('letterType');
 		let formData = this.db.get('formData');
 		
-		if ( ! letterType || ! formData ) // we suppose user opened page with wrong hash
+		if ( letterType === undefined || formData === undefined ) // we suppose user opened page with wrong hash
 		{
 			this.router.navigateToRoute( 'intro' );
 		}

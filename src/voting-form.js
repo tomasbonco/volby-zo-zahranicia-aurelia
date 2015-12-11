@@ -21,7 +21,7 @@ export class VotingForm {
 	{
 		let letterType = this.db.get('letterType');
 		
-		if ( ! letterType )
+		if ( letterType === undefined )
 		{
 			this.router.navigateToRoute( 'intro' );
 		}
