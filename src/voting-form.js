@@ -1,12 +1,14 @@
-import {Database} from 'lib/database'
 import {inject} from 'aurelia-framework'
+import {Router} from 'aurelia-router';
+import {Database} from 'lib/database'
 
-@inject( Database )
-export class VotingLetter {
+@inject( Database, Router )
+export class VotingForm {
 	
-	constructor( db )
+	constructor( db, router )
 	{
 		this.db = db;
+		this.router = router;
 		
 		this.form = {
 			showRepresentative: false,
@@ -21,7 +23,7 @@ export class VotingLetter {
 		
 		if ( ! letterType )
 		{
-			// TODO: redirect to intro
+			this.router.navigateToRoute( 'intro' );
 		}
 		
 		switch ( letterType )
@@ -49,5 +51,12 @@ export class VotingLetter {
 				this.form.showForeignAddress = true;
 				break;
 		}
+	}
+	
+	submitForm()
+	{
+		// TODO: Validation
+		this.db.set('formData', this.field );
+		this.router.navigateToRoute( 'pdf-preview' );
 	}
 }

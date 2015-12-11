@@ -9,7 +9,9 @@ export class App {
       { route: 'voting-form',   name: 'voting-form', 	  moduleId: 'voting-form', 	  nav: true, title: 'Child Router' },
 			{ route: 'pdf-preview', 	name: 'pdf-preview', 		moduleId: 'pdf-preview', 		nav: true, title: 'Child Router' },
 			{ route: 'sign-pdf', 			name: 'sign-pdf', 			moduleId: 'sign-pdf', 			nav: true, title: 'Child Router' },
-			{ route: 'pdf-final', 		name: 'pdf-final', 			moduleId: 'pdf-final', 			nav: true, title: 'Child Router' }
+			{ route: 'pdf-final', 		name: 'pdf-final', 			moduleId: 'pdf-final', 			nav: true, title: 'Child Router' },
+			{ route: 'foreign-id', 		name: 'foreign-id', 			moduleId: 'foreign-id', 			nav: true, title: 'Child Router' },
+			{ route: 'voting-id', 		name: 'voting-id', 			moduleId: 'voting-id', 			nav: true, title: 'Child Router' }
     ]);
 
     this.router = router;

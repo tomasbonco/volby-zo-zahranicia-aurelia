@@ -103,7 +103,7 @@
 					<div class="help-block" if.bind="! field.foreignAddress.country">Štát adresy kde chcete odoslať žiadosť nemôže byť nevyplnený.</div>
 				</div>
 			</template>
-			<p><a class="btn btn-lg btn-success btn-step digitalBlueFill" href="#pdf" id="preview-button" role="button" onclick="createDocument(true)"><strong>Vytvor náhľad žiadosti</strong></a></p>
+			<p><a class="btn btn-lg btn-success btn-step digitalBlueFill" id="preview-button" role="button" click.trigger="submitForm()"><strong>Vytvor náhľad žiadosti</strong></a></p>
 		</div>
 	</div>
 </template>

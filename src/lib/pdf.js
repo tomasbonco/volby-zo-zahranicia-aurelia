@@ -1,4 +1,4 @@
-export class Pdf
+export class PDF
 {
 	constructor()
 	{
@@ -31,7 +31,7 @@ export class Pdf
 		this.content.splice( this.content.indexOf( content ), 1 );
 	}
 	
-	generatePdf()
+	generatePDF()
 	{
 		this.pdf = window.pdfMake.createPdf( { styles: this.styles, content: this.content } );
 	}
@@ -52,7 +52,7 @@ export class Pdf
 		})
 	}
 	
-	openPdf()
+	openPDF()
 	{
 		this.pdf.open();
 	}
